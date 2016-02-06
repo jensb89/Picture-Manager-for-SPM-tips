@@ -20,4 +20,4 @@
 - Save changes with the save button, replace the JSON file with the downloaded JSON file
 
 ### Preview:
-...
+![Preview](https://raw.githubusercontent.com/jensb89/Picture-Manager-for-SPM-tips/images/preview.jpg)
