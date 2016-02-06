@@ -1,0 +1,92 @@
+<html ng-app="TipApp">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+    <!--<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>-->
+
+    <style type="text/css">
+       .bg-used {background-color: #d9edf7 !important;}
+   </style>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="page-header">
+      <h1>Gold Tips <small>SEM pics</small></h1>
+  </div>
+
+
+    <div ng-controller="TipsCtrl"> 
+        <div class="buttons bg-primary row nav-pills">
+            <div class="col-sm-4 col-md-2 navbar-form">
+            Save Changes:
+            <button 
+            type="button" 
+            class="btn btn-success" 
+            ng-click="saveToPc(tips)">Save</button>
+            </div>
+
+            <div class="col-sm-4 col-md-4 navbar-form">
+            Filter By Staus (1=Used, 0=Unused): 
+            <div class="btn-group">
+                <button 
+                type="button" 
+                ng-repeat="status in Statuses" 
+                class="btn btn-warning" 
+                ng-model="selected[status]" 
+                btn-checkbox 
+                ng-class="{active: status == selectedStatus}" 
+                ng-click="setSelectedStatus(status)">{{status}}</button>
+            </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search" ng-model="search">
+                  <input type="checkbox" ng-model="test">Show Table
+                    <p ng-show="test">Searchibg for: {{search}}</p>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-md-offset-2"></div>
+
+        </div>
+        <br/>
+
+        <table class="table" ng-show="test">
+          <tr>
+            <th>Filename</th>
+            <th>Used by:</th>
+            <th> Used? </th>
+        </tr>
+        <tr ng-repeat="tip in tips | filter:search">
+            <td>{{tip.id}}</td>
+            <td>{{tip.User}}</td>
+            <td>{{tip.Used}}</td>
+        </tr>
+        </table>
+
+        <!--<div ng-repeat="tip in tips | filter:search">{{tip.id}},{{tip.User}}{{tip.Used}}</div>-->
+        <div class="row">
+        <div class="col-sm-6 col-md-4" ng-repeat="tip in tips | filter:sortByUsed | filter:search">
+            <div class="thumbnail" id="{{tip.id}}" ng-class="{ 'bg-used': tip.Used}">
+                <img ng-src="{{tip.id}}.bmp" width="440px" alt="..." class="tip" id="{{tip.id}}">
+                <h3>{{tip.id}}, Used: {{tip.Used}}, User: {{tip.User}}</h3>
+                <label>Used:</label><input type="checkbox" ng-model="tip.Used" ng-true-value="1" ng-false-value="0">
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+
+
+</body>
+</html>
