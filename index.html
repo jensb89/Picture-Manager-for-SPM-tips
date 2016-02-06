@@ -75,9 +75,9 @@
         <!--<div ng-repeat="tip in tips | filter:search">{{tip.id}},{{tip.User}}{{tip.Used}}</div>-->
         <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="tip in tips | filter:sortByUsed | filter:search">
-            <div class="thumbnail" id="{{tip.id}}" ng-class="{ 'bg-used': tip.Used}">
-                <img ng-src="{{tip.id}}.bmp" width="440px" alt="..." class="tip" id="{{tip.id}}">
-                <h3>{{tip.id}}, Used: {{tip.Used}}, User: {{tip.User}}</h3>
+            <div class="thumbnail" ng-class="{ 'bg-used': tip.Used}">
+                <img ng-src="{{tip.FileName}}" width="440px" alt="{{tip.FileName}}">
+                <h3>{{tip.FileName}}, Used: {{tip.Used}}, User: {{tip.User}}</h3>
                 <label>Used:</label><input type="checkbox" ng-model="tip.Used" ng-true-value="1" ng-false-value="0">
             </div>
         </div>

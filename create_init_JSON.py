@@ -18,11 +18,10 @@ files = [f for f in sorted(all_files,key=natural_key) if f.endswith('.gif') or f
 
 used_tips = []
 for filename in files:
-	filename_new, file_extension = os.path.splitext(filename)
-	used_tips.append({'Name':filename_new,'Used':0,'User':'None'})
+	used_tips.append({'FileName':filename,'Used':0,'User':'None'})
 
 
-with open('data_test_angular.json', 'w') as outfile:
+with open('data.json', 'w') as outfile:
     data = json.dumps(used_tips)
     data = 'angular.callbacks._0(' + data + ')'
     outfile.write(data)
