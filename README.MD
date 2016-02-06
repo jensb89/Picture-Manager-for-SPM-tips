@@ -16,6 +16,7 @@
 ### Usage:
     
 - Copy the index.html, app.js and the python file to the folder with the pictures
+- Run python file: $ python create_init_JSON.py to create data.json file
 - Open index.html 
 - Save changes with the save button, replace the JSON file with the downloaded JSON file
 
