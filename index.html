@@ -64,24 +64,38 @@
             <th>Filename</th>
             <th>Used by:</th>
             <th> Used? </th>
+            <th> Date </th>
         </tr>
         <tr ng-repeat="tip in tips | filter:search">
-            <td>{{tip.id}}</td>
+            <td>{{tip.FileName}}</td>
             <td>{{tip.User}}</td>
             <td>{{tip.Used}}</td>
+            <td>{{tip.Date | date: "yyyy-MM-dd"}}</td>
         </tr>
         </table>
 
         <!--<div ng-repeat="tip in tips | filter:search">{{tip.id}},{{tip.User}}{{tip.Used}}</div>-->
         <div class="row">
-        <div class="col-sm-6 col-md-4" ng-repeat="tip in tips | filter:sortByUsed | filter:search">
-            <div class="thumbnail" ng-class="{ 'bg-used': tip.Used}">
-                <img ng-src="{{tip.FileName}}" width="440px" alt="{{tip.FileName}}">
-                <h3>{{tip.FileName}}, Used: {{tip.Used}}, User: {{tip.User}}</h3>
-                <label>Used:</label><input type="checkbox" ng-model="tip.Used" ng-true-value="1" ng-false-value="0">
-            </div>
-        </div>
-        </div>
+            <div class="col-sm-6 col-md-4" ng-repeat="tip in tips | filter:sortByUsed | filter:search">
+                <div class="thumbnail" ng-class="{ 'bg-used': tip.Used}">
+                    <img ng-src="{{tip.FileName}}" width="440px" alt="{{tip.FileName}}">
+                    <h3>{{tip.FileName}}</h3>
+                    <label>Used / User / Date:</label>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                              <span class="input-group-addon"><input type="checkbox" ng-model="tip.Used" ng-true-value="1" ng-false-value="0"></span>
+                              <input type="text" class="form-control" ng-model="tip.User">
+                          </div>
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="input-group">
+                          <input type="date" class="form-control" placeholder="yyyy-MM-dd" style="max-width: 90%;" required ng-model="tip.Date" />
+                      </div></div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
 </div>
 
