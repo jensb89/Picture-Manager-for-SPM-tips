@@ -18,7 +18,7 @@ files = [f for f in sorted(all_files,key=natural_key) if f.endswith('.gif') or f
 
 used_tips = []
 for filename in files:
-	used_tips.append({'FileName':filename,'Used':0,'User':'None'})
+	used_tips.append({'FileName':filename,'Used':0,'User':'None','Date':'2016-01-01'})
 
 
 with open('data.json', 'w') as outfile:

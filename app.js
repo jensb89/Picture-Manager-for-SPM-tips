@@ -5,7 +5,8 @@ angular.module('TipApp', [])
     // Load data from JSON file:
     $http.jsonp('data.json')
        .success(function(res){
-          $scope.tips = res;                
+          $scope.tips = res;
+          angular.forEach($scope.tips, function(item){item.Date = new Date(item.Date);})              
     });
 
     // Sort by Used Status:
