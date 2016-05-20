@@ -22,3 +22,6 @@
 
 ### Preview:
 ![Preview](https://raw.githubusercontent.com/jensb89/Picture-Manager-for-SPM-tips/images/preview.jpg)
+
+### Demo
+Have a look at the demo page here: [http://jensb89.github.io/Picture-Manager-for-SPM-tips/](http://jensb89.github.io/Picture-Manager-for-SPM-tips/)
