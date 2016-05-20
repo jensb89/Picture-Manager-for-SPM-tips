@@ -6,7 +6,10 @@
 
     <style type="text/css">
        .bg-used {background-color: #d9edf7 !important;}
+       .footer {padding-top: 19px;color: #777;border-top: 1px solid #e5e5e5;}
    </style>
+
+   <title> Gold Tips - SEM pics </title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -49,7 +52,7 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search" ng-model="search">
                   <input type="checkbox" ng-model="test">Show Table
-                    <p ng-show="test">Searchibg for: {{search}}</p>
+                    <p ng-show="test">Searching for: {{search}}</p>
                 </div>
               </form>
             </div>
@@ -97,6 +100,9 @@
           </div>
       </div>
     </div>
+    <footer class="footer">
+        <p>Powered by AngularJS + Bootstrap Framework, Code by Jens Brauer</p>
+     </footer>
 </div>
 
 <script src="app.js"></script>
